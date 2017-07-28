@@ -9,7 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UdpTest", "UdpTest", "{E1EB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdpClient", "UdpClientA\UdpClient.csproj", "{F7F29F56-152A-4D40-9613-27AAA92F99CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpServer", "UdpClientB\UdpServer.csproj", "{70C95273-3DF7-41EB-A050-E76E42CE678D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdpServer", "UdpClientB\UdpServer.csproj", "{70C95273-3DF7-41EB-A050-E76E42CE678D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ping", "Ping", "{29844F21-E875-4B70-868A-4E621F357243}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPing", "TestPing\TestPing.csproj", "{D9EEB445-8619-4B6A-AB2D-D67AD988A9C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,10 @@ Global
 		{70C95273-3DF7-41EB-A050-E76E42CE678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70C95273-3DF7-41EB-A050-E76E42CE678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70C95273-3DF7-41EB-A050-E76E42CE678D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EEB445-8619-4B6A-AB2D-D67AD988A9C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EEB445-8619-4B6A-AB2D-D67AD988A9C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EEB445-8619-4B6A-AB2D-D67AD988A9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EEB445-8619-4B6A-AB2D-D67AD988A9C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +44,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F7F29F56-152A-4D40-9613-27AAA92F99CB} = {E1EBA043-2352-4EB4-93F1-1F7D81F07FB3}
 		{70C95273-3DF7-41EB-A050-E76E42CE678D} = {E1EBA043-2352-4EB4-93F1-1F7D81F07FB3}
+		{D9EEB445-8619-4B6A-AB2D-D67AD988A9C5} = {29844F21-E875-4B70-868A-4E621F357243}
 	EndGlobalSection
 EndGlobal
