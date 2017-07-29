@@ -123,10 +123,11 @@ namespace TestPing
 
             dwStart = System.Environment.TickCount; // Start timing  
                                                     //send the Packet over the socket  
-            if ((nBytes = socket.SendTo(sendbuf, PacketSize, 0, epServer)) == SOCKET_ERROR)
+            if ((nBytes = socket.SendTo(sendbuf, PacketSize, SocketFlags.None, epServer)) == SOCKET_ERROR)
             {
                 return "Socket Error: cannot send Packet";
             }
+
             // Initialize the buffers. The receive buffer is the size of the  
             // ICMP header plus the IP header (20 bytes)  
             Byte[] ReceiveBuffer = new Byte[256];
@@ -138,7 +139,9 @@ namespace TestPing
             //loop for checking the time of the server responding  
             while (!recd)
             {
-                nBytes = socket.ReceiveFrom(ReceiveBuffer, 256, 0, ref EndPointFrom);
+                //接收的字符数组包含ip头, IPV4 head = 40
+                nBytes = socket.ReceiveFrom(ReceiveBuffer, 256, SocketFlags.None, ref EndPointFrom);
+
                 if (nBytes == SOCKET_ERROR)
                 {
                     return "主机没有响应";
@@ -146,6 +149,7 @@ namespace TestPing
                 }
                 else if (nBytes > 0)
                 {
+                    this.Print(ReceiveBuffer, nBytes);
                     dwStop = System.Environment.TickCount - dwStart; // stop timing  
                     return "Reply from " + epServer.ToString() + " in "
                        + dwStop + "ms. Received: " + nBytes + " Bytes.";
@@ -160,6 +164,22 @@ namespace TestPing
             //close the socket  
             socket.Dispose();
             return "";
+        }
+
+        public void Print(byte[] data, int size)
+        {
+            int start = 0;
+            for(int i = 0; i < size; i++)
+            {
+                if (start == 16)
+                {
+                    Console.WriteLine();
+                }
+                Console.Write(Convert.ToString(data[i], 16));
+                Console.Write(" ");
+                start++;
+            }
+            Console.WriteLine();
         }
 
         /// <summary>  
